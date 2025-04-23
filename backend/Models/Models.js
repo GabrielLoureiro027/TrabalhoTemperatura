@@ -22,3 +22,22 @@ export const cadastrarLocal = (req, res) => {
         ]
     }
     }
+    export const atualizarLocal = (req, res) => {
+        const {id_local, nome_local, cidade_local, estado_local, pais_local} = req.body
+       
+        try{
+             const sql = `UPDATE local SET nome_local = ?, cidade_local = ?, estado_local = ?, pais_local = ? WHERE id_local = ?`
+             const params = [nome_local, cidade_local, estado_local, pais_local, id_local]
+             const resposta = conexao.query(sql, params)
+             return [200,{message: 'Local atualizado com sucesso'}]
+        }catch(error){
+            console.log(error)
+            return [
+                500,{
+                    mensage:"Error no Servidor",
+                    sql: error.code,
+                    sqlMessage: error.sqlMessage
+                }
+            ]
+        }
+        }
