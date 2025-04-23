@@ -7,7 +7,7 @@ export const cadastrarLocal = (req, res) => {
    
 
     try{
-         const sql = `INSERT INTO local (nome_local, cidade_local, estado_local, pais_local) VALUES ('?', '?', '?', '?')`
+         const sql = `INSERT INTO local (nome_local, cidade_local, estado_local, pais_local) VALUES (?, ?, ?, ?)`
          const params = [nome_local, cidade_local, estado_local, pais_local]
          const resposta = conexao.query(sql, params)
          return [201,{message: 'Local cadastrado com sucesso'}]

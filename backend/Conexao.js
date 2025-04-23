@@ -2,6 +2,6 @@ const db = {
     host:"localhost",
     user:"root",
     password:"",
-    database:"temperatura"
+    database:"trabalho"
 }
 export default db
